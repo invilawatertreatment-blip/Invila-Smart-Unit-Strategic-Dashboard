@@ -31,16 +31,21 @@
 <body class="bg-slate-50 text-slate-900 selection:bg-blue-100">
 
     <!-- Navigasi -->
-    <nav class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg">I</div>
-                <div class="hidden sm:block text-left">
-                    <h1 class="font-bold text-slate-800 leading-tight">Invila™ Smart Unit</h1>
-                    <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Strategic Dashboard</p>
+    <nav class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 px-4 sm:px-6 py-3 sm:py-4">
+        <!-- Diubah menjadi flex-col di HP agar logo penuh muat di atas dan menu sejajar rapi di bawahnya -->
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
+            
+            <!-- Elemen Logo diubah menjadi tag <a> agar bisa diklik -->
+            <a href="#" class="flex items-center gap-2 sm:gap-3 hover:opacity-80 transition-opacity cursor-pointer">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 bg-blue-600 rounded-[0.6rem] sm:rounded-xl flex items-center justify-center text-white font-black text-lg sm:text-xl shadow-lg shrink-0">I</div>
+                <!-- Menghapus class 'hidden sm:block' agar teks logo selalu muncul di HP -->
+                <div class="text-left">
+                    <h1 class="font-bold text-slate-800 text-[15px] sm:text-base leading-tight">Invila™ Smart Unit</h1>
+                    <p class="text-[9px] sm:text-[10px] text-slate-500 uppercase tracking-widest font-bold">Strategic Dashboard</p>
                 </div>
-            </div>
-            <div class="flex gap-6 text-sm font-bold text-slate-600">
+            </a>
+
+            <div class="flex gap-4 sm:gap-6 text-xs sm:text-sm font-bold text-slate-600">
                 <a href="#optimasi" class="hover:text-blue-600">Optimasi</a>
                 <a href="#teknologi" class="hover:text-blue-600">Teknologi</a>
                 <a href="#populasi" class="hover:text-blue-600">Populasi</a>
@@ -53,23 +58,19 @@
         <!-- Hero Section -->
         <section class="pt-10 flex flex-col md:flex-row md:items-end justify-between gap-8 text-left">
             <div class="space-y-6">
-                <img src="https://raw.githubusercontent.com/invilawatertreatment-blip/invila-odometer/main/invila-treatment-unit.png" alt="Invila Logo" class="h-20 w-auto object-contain self-start">
+                <img src="https://raw.githubusercontent.com/invilawatertreatment-blip/invila-odometer/main/invila-treatment-unit.png" alt="Invila Logo" class="h-16 sm:h-20 w-auto object-contain self-start">
                 <div class="flex items-center gap-2 text-blue-600 font-bold tracking-widest text-[10px] uppercase">
-                    <div class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+                    <div class="w-2 h-2 bg-blue-600 rounded-full animate-pulse shrink-0"></div>
                     <span>Infrastruktur Air Terpercaya, Rekam Jejak Operasional Operasional Terbukti</span>
                 </div>
-                <h2 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
-                    Analisis Strategis & <br/>
-                    <span class="text-blue-600 underline decoration-blue-200 underline-offset-8">Reklamasi Effluent WWTP Menjadi Air Bersih</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 leading-tight">
+                    Water-as-a-Service untuk Infrastruktur Air Bersih Tanpa CAPEX <br/>
+                    <span class="text-blue-600 text-[75%] underline decoration-blue-200 underline-offset-8">Dapatkan infrastruktur air bersih dan jasa pengolahan air dalam satu skema layanan berbasis kinerja, tanpa investasi awal CAPEX</span>
                 </h2>
-                <p class="text-slate-500 max-w-2xl text-lg leading-relaxed">
+                <p class="text-slate-500 max-w-2xl text-base sm:text-lg leading-relaxed">
                     Transformasi cerdas air limbah menjadi air produksi pangan. Dirancang untuk potensi optimasi biaya operasional tanpa modifikasi struktur permanen pada sistem WWTP eksisting.
                 </p>
             </div>
-            <button onclick="restartAnimations()" class="flex items-center justify-center gap-2 bg-white text-slate-700 font-bold px-6 py-3 rounded-xl shadow-sm border border-slate-200 hover:bg-slate-50 transition-all active:scale-95 whitespace-nowrap">
-                <i data-lucide="refresh-cw" size="18"></i>
-                Mulai Ulang Animasi
-            </button>
         </section>
 
         <!-- Optimasi Finansial -->
@@ -91,11 +92,11 @@
                     </div>
                 </div>
 
-                <div class="bg-blue-600 rounded-3xl p-8 text-white flex flex-col justify-between shadow-xl">
+                <div class="bg-blue-600 rounded-3xl p-6 sm:p-8 text-white flex flex-col justify-between shadow-xl">
                     <i data-lucide="zap" size="40" class="opacity-50"></i>
-                    <div class="space-y-3">
-                        <p class="text-blue-200 font-bold text-sm tracking-widest uppercase">Potensi Efisiensi Tahunan</p>
-                        <h4 class="text-4xl md:text-5xl font-black leading-none tracking-tighter">Rp 3,276 Miliar</h4>
+                    <div class="space-y-3 mt-6 sm:mt-0">
+                        <p class="text-blue-200 font-bold text-xs sm:text-sm tracking-widest uppercase">Potensi Efisiensi Tahunan</p>
+                        <h4 class="text-3xl sm:text-4xl md:text-5xl font-black leading-none tracking-tighter">Rp 3,276 Miliar</h4>
                         <p class="text-xs text-blue-100 italic opacity-80">Berdasarkan substitusi minimum kontrak 30.000 m³/bulan dibandingkan tarif eksisting.</p>
                     </div>
                     <div class="pt-6 border-t border-blue-500/50 mt-6">
@@ -133,30 +134,41 @@
 
         <!-- Populasi Section -->
         <section id="populasi" class="space-y-10 text-left">
-            <div class="bg-slate-900 rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
-                <div class="relative z-10 space-y-12">
-                    <div class="flex flex-col md:flex-row md:items-center gap-6">
-                        <div class="p-4 bg-blue-600 rounded-2xl shadow-lg">
-                            <i data-lucide="waves" size="32"></i>
+            <div class="bg-slate-900 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
+                <div class="relative z-10 space-y-8 sm:space-y-12">
+                    
+                    <!-- AREA YANG DIMODIFIKASI: Tombol ditambahkan di sisi kanan -->
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                            <div class="p-4 bg-blue-600 rounded-2xl shadow-lg shrink-0 w-fit">
+                                <i data-lucide="waves" size="32"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-lg sm:text-xl font-bold tracking-widest uppercase opacity-80">Akumulasi Kapasitas Terpasang</h2>
+                                <p class="text-blue-300 text-xs sm:text-sm font-medium opacity-60">Rekam jejak operasional di seluruh Indonesia sejak 2013</p>
+                            </div>
                         </div>
-                        <div>
-                            <h2 class="text-xl font-bold tracking-widest uppercase opacity-80">Akumulasi Kapasitas Terpasang</h2>
-                            <p class="text-blue-300 text-sm font-medium opacity-60">Rekam jejak operasional di seluruh Indonesia sejak 2013</p>
-                        </div>
+                        
+                        <!-- TOMBOL DIPINDAHKAN KESINI -->
+                        <button onclick="restartAnimations()" class="flex items-center justify-center gap-2 bg-slate-800/80 text-white font-bold px-4 sm:px-6 py-3 rounded-xl shadow-sm border border-slate-700 hover:bg-slate-700 transition-all active:scale-95 whitespace-nowrap text-sm sm:text-base w-full md:w-auto">
+                            <i data-lucide="refresh-cw" size="18"></i>
+                            Mulai Ulang Animasi
+                        </button>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-left">
                         <div class="space-y-2">
                             <p class="text-blue-400 font-bold text-xs uppercase tracking-widest">Kapasitas Per Bulan</p>
                             <div class="flex items-baseline gap-2">
-                                <span id="countMonthly" class="text-5xl md:text-7xl font-black tabular-nums">0</span>
-                                <span class="text-2xl font-light opacity-50 italic">m³</span>
+                                <span id="countMonthly" class="text-4xl sm:text-5xl md:text-7xl font-black tabular-nums">0</span>
+                                <span class="text-xl sm:text-2xl font-light opacity-50 italic">m³</span>
                             </div>
                         </div>
-                        <div class="space-y-2 border-t md:border-t-0 md:border-l border-slate-800 pt-8 md:pt-0 md:pl-12">
+                        <div class="space-y-2 border-t md:border-t-0 md:border-l border-slate-800 pt-6 md:pt-0 md:pl-12">
                             <p class="text-blue-400 font-bold text-xs uppercase tracking-widest">Kapasitas Per Tahun</p>
                             <div class="flex items-baseline gap-2">
-                                <span id="countYearly" class="text-5xl md:text-7xl font-black tabular-nums">0</span>
-                                <span class="text-2xl font-light opacity-50 italic">m³</span>
+                                <span id="countYearly" class="text-4xl sm:text-5xl md:text-7xl font-black tabular-nums">0</span>
+                                <span class="text-xl sm:text-2xl font-light opacity-50 italic">m³</span>
                             </div>
                         </div>
                     </div>
@@ -173,14 +185,14 @@
         <!-- Logo Section -->
         <section class="pt-10 space-y-12">
             <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.5em] text-center">Mitra Industri Strategis</h4>
-            <div id="logoGrid" class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-8 items-center px-6"></div>
+            <div id="logoGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-6 sm:gap-8 items-center px-4 sm:px-6"></div>
         </section>
 
     </main>
 
     <!-- Floating Chat Widget -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-        <div id="chat-window" class="bg-white w-[350px] max-w-[90vw] h-[500px] shadow-2xl rounded-2xl border border-slate-200 mb-4 overflow-hidden flex flex-col hidden">
+    <div class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end">
+        <div id="chat-window" class="bg-white w-[350px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[75vh] shadow-2xl rounded-2xl border border-slate-200 mb-4 overflow-hidden flex flex-col hidden">
             <div class="bg-blue-600 p-4 text-white flex justify-between items-center">
                 <div class="flex items-center gap-2">
                     <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
@@ -351,9 +363,10 @@
         }
 
         function restartAnimations() {
-            animateValue("countMonthly", 0, 6500700, 2000);
-            animateValue("countYearly", 0, 78008400, 2500);
-            projects.forEach((p, i) => animateValue(`projectCap-${p.id}`, 0, p.capacity, 1500 + (i*100)));
+            // Durasi diperlambat lagi (waktu dikalikan 2 dari versi sebelumnya)
+            animateValue("countMonthly", 0, 6500700, 8000); // menjadi 8000ms (8 detik)
+            animateValue("countYearly", 0, 78008400, 10000); // menjadi 10000ms (10 detik)
+            projects.forEach((p, i) => animateValue(`projectCap-${p.id}`, 0, p.capacity, 6000 + (i*400))); // menjadi base 6 detik
         }
 
         window.onload = () => {
