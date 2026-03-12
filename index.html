@@ -14,8 +14,7 @@
     <style>
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .odometer-digit { transition: all 2s ease-out; }
-        .grayscale-hover { filter: grayscale(100%); transition: all 0.5s ease; opacity: 0.6; }
-        .grayscale-hover:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
+        /* Style bawaan dihapus karena efek hover logo sudah ditangani langsung oleh class Tailwind di Javascript */
         .active-tab { background-color: #2563eb !important; color: white !important; border-color: #2563eb !important; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3); }
         canvas { width: 100% !important; height: 100% !important; }
         
@@ -182,8 +181,6 @@
             <div id="projectGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </section>
 
-        <!-- BAGIAN LOGO LAMA DI SINI TELAH DIHAPUS AGAR TIDAK BENTROK -->
-
     </main>
 
     <!-- Floating Chat Widget -->
@@ -211,8 +208,8 @@
         </button>
     </div>
 
-    <!-- AREA YANG DIMODIFIKASI: Footer & Pemindahan Logo -->
-    <footer class="mt-20 pt-20 pb-12 bg-slate-950 text-center space-y-16 border-t border-slate-900">
+    <!-- Footer & Pemindahan Logo -->
+    <footer class="mt-20 pt-20 pb-16 bg-slate-950 text-center space-y-16 border-t border-slate-900">
         
         <div class="space-y-6">
             <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-lg mx-auto">I</div>
@@ -220,10 +217,10 @@
             <p class="text-slate-600 text-[10px] px-8 max-w-2xl mx-auto leading-relaxed italic">Disclaimer: Draf analisis strategis untuk kepentingan internal PT Charoen Pokphand Indonesia.</p>
         </div>
 
-        <!-- Logo Section Dipindahkan Ke Sini (Paling Bawah) -->
+        <!-- Logo Section di Paling Bawah -->
         <div class="space-y-8 max-w-7xl mx-auto pt-8 border-t border-slate-900/50">
-            <!-- Warna teks diubah menjadi text-slate-400 agar terlihat cerah di background gelap -->
             <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.5em] text-center">Mitra Industri Strategis</h4>
+            <!-- Grid untuk logo -->
             <div id="logoGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-4 sm:gap-6 items-center px-4 sm:px-6"></div>
         </div>
 
@@ -408,8 +405,15 @@
             });
 
             const lGrid = document.getElementById('logoGrid');
-            // Menambahkan background putih (bg-white rounded-xl p-3) agar logo selalu terlihat jelas di footer yang hitam
-            logos.forEach(l => lGrid.innerHTML += `<div class="flex justify-center bg-white rounded-xl p-3 shadow-sm hover:shadow-md transition-shadow"><img src="https://raw.githubusercontent.com/invilawatertreatment-blip/invila-odometer/main/${l}" class="h-10 grayscale-hover object-contain" onerror="this.style.display='none'"></div>`);
+            
+            // AREA MODIFIKASI: Menambahkan Card putih bundar yang membungkus gambar logo 
+            // serta menyembunyikan kotak putih tersebut jika gambarnya gagal diload.
+            logos.forEach(l => {
+                lGrid.innerHTML += `
+                <div class="flex justify-center items-center bg-white rounded-xl p-3 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <img src="https://raw.githubusercontent.com/invilawatertreatment-blip/invila-odometer/main/${l}" class="h-8 sm:h-10 w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" onerror="this.parentElement.style.display='none'">
+                </div>`;
+            });
 
             initCharts(); setPhase(0); restartAnimations(); lucide.createIcons();
             
