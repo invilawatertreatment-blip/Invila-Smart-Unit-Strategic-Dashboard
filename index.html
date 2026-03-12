@@ -3,54 +3,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tautan Gemini Share</title>
+    <title>Invila™ Smart Unit - Strategic Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f7f9;
-        }
-        .container {
-            text-align: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #1a73e8;
-            font-size: 1.5rem;
-        }
-        p {
-            color: #5f6368;
-            margin-bottom: 1.5rem;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #1a73e8;
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #1557b0;
-        }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .odometer-digit { transition: all 2s ease-out; }
+        .grayscale-hover { filter: grayscale(100%); transition: all 0.5s ease; opacity: 0.6; }
+        .grayscale-hover:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
+        .active-tab { background-color: #2563eb !important; color: white !important; border-color: #2563eb !important; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3); }
+        canvas { width: 100% !important; height: 100% !important; }
     </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-900 selection:bg-blue-100">
 
-    <div class="container">
-        <h1>Percakapan Gemini</h1>
-        <p>Klik tombol di bawah untuk melihat detail percakapan yang dibagikan.</p>
-        <a href="https://gemini.google.com/share/03791e86b42a" class="btn" target="_blank">Buka Link Gemini</a>
-    </div>
+    <!-- Navigasi -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg">I</div>
+                <div class="hidden sm:block text-left">
+                    <h1 class="font-bold text-slate-800 leading-tight">Invila™ Smart Unit</h1>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Strategic Dashboard</p>
+                </div>
+            </div>
+            <div class="flex gap-6 text-sm font-bold text-slate-600">
+                <a href="#optimasi" class="hover:text-blue-600">Optimasi</a>
+                <a href="#teknologi" class="hover:text-blue-600">Teknologi</a>
+                <a href="#populasi" class="hover:text-blue-600">Populasi</a>
+            </div>
+        </div>
+    </nav>
 
+    <main class="max-w-7xl mx-auto p-4 md:p-8 space-y-20">
+        
+        <!-- Hero Section -->
+        <section class="pt-10 flex flex-col md:flex-row md:items-end justify-between gap-8 text-left">
+            <div class="space-y-6">
+                <img src="https://raw.githubusercontent.com/invilawatertreatment-blip/invila-odometer/main/invila-treatment-unit.png" alt="Invila Logo" class="h-20 w-auto object-contain self-start">
+                <div class="flex items-center gap-2 text-blue-600 font-bold tracking-widest text-[10px] uppercase">
+                    <div class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+                    <span>Infrastruktur Air Terpercaya</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
+                    Analisis Strategis & <br/>
+                    <span class="text-blue-600 underline decoration-blue-200 underline-offset-8">Rekam Jejak Operasional</span>
+                </h2>
+                <p class="text-slate-500 max-w-2xl text-lg leading-relaxed">
+                    Transformasi cerdas air limbah menjadi air produksi pangan. Dirancang untuk potensi optimasi biaya operasional tanpa modifikasi struktur permanen pada sistem WWTP eksisting.
+                </p>
+            </div>
+            <button onclick="restartAnimations()" class="flex items-center justify-center gap-2 bg-white text-slate-700 font-bold px-6 py-3 rounded-xl shadow-sm border border-slate-200 hover:bg-slate-50 transition-all active:scale-95 whitespace-nowrap">
+                <i data-lucide="refresh-cw" size="18"></i>
+                Mulai Ulang Animasi
+            </button>
+        </section>
+
+        <!-- Optimasi Finansial -->
+        <section id="optimasi" class="space-y-8 text-left">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+                    <div class="flex items-center gap-2 border-b border-slate-50 pb-4">
+                        <i data-lucide="trending-down" class="text-blue-600"></i>
+                        <h3 class="font-black text-xl text-slate-800 uppercase tracking-tighter">Potensi Optimasi Biaya Utilitas</h3>
+                    </div>
+                    <div class="h-64 md:h-80">
+                        <canvas id="financialChart"></canvas>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-slate-100 text-sm">
+                        <div><p class="text-[10px] font-bold text-slate-400 uppercase">Volume Kontrak</p><p class="font-bold">30.000 m³/bln</p></div>
+                        <div><p class="text-[10px] font-bold text-slate-400 uppercase">Tarif PDAM</p><p class="font-bold">Rp 14.600</p></div>
+                        <div><p class="text-[10px] font-bold text-slate-400 uppercase">Tarif Invila</p><p class="font-bold text-blue-600">Rp 5.500</p></div>
+                        <div><p class="text-[10px] font-bold text-slate-400 uppercase">ROI Tahunan</p><p class="font-bold">~ Rp 3,2M</p></div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-600 rounded-3xl p-8 text-white flex flex-col justify-between shadow-xl">
+                    <i data-lucide="zap" size="40" class="opacity-50"></i>
+                    <div class="space-y-3">
+                        <p class="text-blue-200 font-bold text-sm tracking-widest uppercase">Potensi Efisiensi Tahunan</p>
+                        <h4 class="text-4xl md:text-5xl font-black leading-none tracking-tighter">Rp 3,276 Miliar</h4>
+                        <p class="text-xs text-blue-100 italic opacity-80">Berdasarkan substitusi minimum kontrak 30.000 m³/bulan dibandingkan tarif eksisting.</p>
+                    </div>
+                    <div class="pt-6 border-t border-blue-500/50 mt-6">
+                        <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest">
+                            <i data-lucide="shield-check" size="18"></i>
+                            <span>Zero CAPEX Model</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teknologi Section -->
+        <section id="teknologi" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left">
+            <div class="lg:col-span-4 space-y-4" id="phaseTabs">
+                <div class="flex items-center gap-2 mb-4">
+                    <i data-lucide="cpu" class="text-blue-600"></i>
+                    <h3 class="font-black text-xl text-slate-800 uppercase tracking-tighter">Metodologi & Kontrol</h3>
+                </div>
+                <!-- Tabs generated via JS -->
+            </div>
+
+            <div class="lg:col-span-8 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm min-h-[450px] flex flex-col transition-all">
+                <div id="phaseContent" class="flex-grow space-y-6">
+                    <!-- Content injected via JS -->
+                </div>
+                <div class="mt-8 pt-8 border-t border-slate-100 flex flex-col md:flex-row gap-6 items-center">
+                    <div class="flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-full text-[10px] font-bold">
+                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        SCADA IOT ACTIVE
+                    </div>
+                    <div class="flex-grow h-20 w-full">
+                        <canvas id="scadaChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Populasi Section -->
+        <section id="populasi" class="space-y-10 text-left">
+            <div class="bg-slate-900 rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
+                <div class="relative z-10 space-y-12">
+                    <div class="flex flex-col md:flex-row md:items-center gap-6">
+                        <div class="p-4 bg-blue-600 rounded-2xl shadow-lg">
+                            <i data-lucide="waves" size="32"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold tracking-widest uppercase opacity-80">Akumulasi Kapasitas Terpasang</h2>
+                            <p class="text-blue-300 text-sm font-medium opacity-60">Rekam jejak operasional di seluruh Indonesia sejak 2013</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+                        <div class="space-y-2">
+                            <p class="text-blue-400 font-bold text-xs uppercase tracking-widest">Kapasitas Per Bulan</p>
+                            <div class="flex items-baseline gap-2">
+                                <span id="countMonthly" class="text-5xl md:text-7xl font-black tabular-nums">0</span>
+                                <span class="text-2xl font-light opacity-50 italic">m³</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2 border-t md:border-t-0 md:border-l border-slate-800 pt-8 md:pt-0 md:pl-12">
+                            <p class="text-blue-400 font-bold text-xs uppercase tracking-widest">Kapasitas Per Tahun</p>
+                            <div class="flex items-baseline gap-2">
+                                <span id="countYearly" class="text-5xl md:text-7xl font-black tabular-nums">0</span>
+                                <span class="text-2xl font-light opacity-50 italic">m³</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <h2 class="text-2xl font-black text-slate-800 whitespace-nowrap tracking-tight">Detail Populasi Proyek</h2>
+                <div class="h-px flex-grow bg-slate-200"></div>
+            </div>
+
+            <div id="projectGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cards injected via JS -->
+            </div>
+        </section>
+
+        <!-- Logo Section -->
+        <section class="pt-10 space-y-12">
+            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.5em] text-center">Mitra Industri Strategis</h4>
+            <div id="logoGrid" class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-8 items-center px-6">
+                <!-- Logos injected via JS -->
+            </div>
+        </section>
+
+        <!-- Risk Section -->
+        <section class="bg-white rounded-[2.5rem] p-8 md:p-12 border border-slate-200 shadow-sm text-left">
+            <div class="max-w-3xl space-y-6">
+                <h3 class="text-3xl font-black text-slate-800 tracking-tighter">Manajemen Risiko & Keamanan Aset</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-slate-50">
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 font-bold">01</div>
+                        <h5 class="font-bold uppercase text-xs tracking-widest">Proteksi Biologis (Recovery)</h5>
+                        <p class="text-sm text-slate-500 leading-relaxed">Jalur resirkulasi otomatis untuk menyelamatkan populasi bakteri biologi di tangki eksisting jika terjadi fluktuasi beban influen ekstrem.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 font-bold">02</div>
+                        <h5 class="font-bold uppercase text-xs tracking-widest">Minimalisasi Downtime</h5>
+                        <p class="text-sm text-slate-500 leading-relaxed">Skema redundansi paralel dengan suplai air eksisting memastikan lini produksi tetap berjalan normal selama pemeliharaan unit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-20 py-20 bg-slate-950 text-center space-y-6 border-t border-slate-900">
+        <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-lg mx-auto">I</div>
+        <p class="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Engineering by Invila Engineering Systems</p>
+        <p class="text-slate-600 text-[10px] px-8 max-w-2xl mx-auto leading-relaxed italic">Disclaimer: Draf analisis strategis untuk kepentingan internal PT Charoen Pokphand Indonesia.</p>
+    </footer>
+
+    <script>
+        // DATA
+        const projects = [
+            { id: 1, name: "Clarifier 6 PDAM Tirtanadi Sunggal", location: "Medan-Sunggal", year: "2013", client: "PDAM Tirtanadi", capacity: 1296000 },
+            { id: 2, name: "Clarifier 1 PDAM Tirtanadi Sunggal", location: "Medan-Sunggal", year: "2014", client: "PDAM Tirtanadi", capacity: 1296000 },
+            { id: 3, name: "WTP 300 LPS (Uprating Legong)", location: "Depok", year: "2016", client: "PDAM", capacity: 777600 },
+            { id: 4, name: "WTP 300 LPS Citayam", location: "Jawa Barat", year: "2016", client: "PDAM", capacity: 777600 },
+            { id: 5, name: "SPAM Gunung Sari Petro Kimia", location: "Surabaya", year: "2016", client: "PT Petro Kimia Gresik", capacity: 2160000 },
+            { id: 6, name: "SPAM 50 LPS KIW", location: "Semarang", year: "2018", client: "KIW Semarang", capacity: 12900 },
+            { id: 7, name: "IPAL – IPA Salatiga Plant", location: "Salatiga", year: "2025", client: "PT Kievit Indonesia", capacity: 7800 },
+            { id: 8, name: "SPAM UT – Patria Maritim", location: "Banjarmasin", year: "2025", client: "Dok Patria Maritim", capacity: 108000 },
+            { id: 9, name: "Kawasan Industri Wijayakusuma", location: "Jawa Tengah", year: "2026", client: "Manajemen Kawasan", capacity: 64800 },
+        ];
+
+        const phases = [
+            { id: 0, name: '1. AERO-PULSE', title: 'Optimalisasi Hidrolika & Aero-Shock', desc: 'Bayangkan lumpur di dalam air limbah itu seperti "balon udara kecil". Karena proses aerasi biologi (MBBR) yang sangat kuat, lumpur terjebak oleh gelembung udara mikroskopis sehingga mengapung.\n\nAero-Shock memberikan "hentakan" udara bertekanan selama 0,5 detik di jalur air masuk untuk melucuti gelembung tersebut. Hasilnya, lumpur kembali berat dan tenggelam secara alami.', result: 'Lumpur mengapung (scum) berkurang drastis.' },
+            { id: 1, name: '2. ZERO-SALT DOSING', title: 'Pengikatan Non-Garam', desc: 'Injeksi polimer kationik organik untuk mengikat kotoran tanpa menambah beban garam (Klorida/TDS) ke dalam air. Strategi ini memastikan angka TDS terjaga tetap rendah tanpa mesin RO yang mahal.', result: 'TDS terkendali sesuai parameter dasar.' },
+            { id: 2, name: '3. HYBRID LAMELLA', title: 'Pemisahan Fisik High-Rate', desc: 'Unit sedimentasi kecepatan tinggi dengan geometri lamella khusus. Footprint (kebutuhan lahan) 50% lebih hemat dibandingkan sistem konvensional namun dengan kapasitas jauh lebih besar.', result: 'Kekeruhan ditargetkan < 1 NTU.' },
+            { id: 3, name: '4. SMART AERO-CARBON', title: 'Pemolesan Organik (SACF)', desc: 'Adsorpsi polutan organik dan gas menggunakan media Silica Sand dan Karbon Aktif premium. Efektif menyerap bau amis darah, warna, dan sisa bahan organik hingga COD < 20 mg/L.', result: 'Menghilangkan bau, warna, dan sisa COD.' },
+            { id: 4, name: '5. STERILISASI & BLENDING', title: 'Penyelesaian Food Grade', desc: 'Injeksi klorin dosis presisi (E. Coli = 0) dipadukan dengan pencampuran cerdas (blending 10-15%) air segar untuk mengunci TDS < 300 mg/L sesuai Permenkes No. 2 Tahun 2023.', result: 'Target Mutu: E. Coli 0 (Mutlak)' }
+        ];
+
+        const logos = [
+            "tirtanadi.png", "kievit.png", "kiw.png", "petrokimia-gresik.png", 
+            "united-tractors.png", "patria-maritim-perkasa.png", 
+            "tirta-asasta-depok.png", "wika.png", "cemerlang-samudra-kontrindo.png"
+        ];
+
+        // LOGIC
+        let finChart, scadaChart;
+
+        function formatIDN(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const val = Math.floor(progress * (end - start) + start);
+                obj.innerText = formatIDN(val);
+                if (progress < 1) window.requestAnimationFrame(step);
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        function initCharts() {
+            const finCtx = document.getElementById('financialChart').getContext('2d');
+            const dataP = Array.from({length: 12}, (_, i) => (i+1) * 30000 * 14600);
+            const dataI = Array.from({length: 12}, (_, i) => (i+1) * 30000 * 5500);
+
+            finChart = new Chart(finCtx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({length: 12}, (_, i) => `Bln ${i+1}`),
+                    datasets: [
+                        { label: 'Baseline (PDAM)', data: dataP, borderColor: '#94a3b8', borderDash: [5,5], fill: false, pointRadius: 0 },
+                        { label: 'Proyeksi (Invila)', data: dataI, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,0.1)', fill: true, borderWidth: 3 }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top' } } }
+            });
+
+            const scadaCtx = document.getElementById('scadaChart').getContext('2d');
+            scadaChart = new Chart(scadaCtx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({length: 20}, (_, i) => i),
+                    datasets: [{ data: Array.from({length: 20}, () => 275 + Math.random()*15), borderColor: '#2dd4bf', backgroundColor: 'rgba(45,212,191,0.1)', fill: true, tension: 0.4, pointRadius: 0 }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 200, max: 350 }, x: { display: false } } }
+            });
+        }
+
+        function setPhase(idx) {
+            const content = document.getElementById('phaseContent');
+            const phase = phases[idx];
+            
+            // Update Tab UI
+            document.querySelectorAll('.phase-tab').forEach((t, i) => {
+                if(i === idx) t.classList.add('active-tab');
+                else t.classList.remove('active-tab');
+            });
+
+            content.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 font-bold text-lg">0${idx+1}</div>
+                    <h4 class="text-2xl font-black text-slate-800 tracking-tight">${phase.title}</h4>
+                </div>
+                <p class="text-slate-500 leading-relaxed text-base whitespace-pre-line bg-slate-50/50 p-6 rounded-2xl border border-slate-100 italic">
+                    "${phase.desc}"
+                </p>
+                <div class="flex items-center gap-3 bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
+                    <i data-lucide="check-circle-2" class="text-blue-600"></i>
+                    <div>
+                       <p class="text-[10px] font-black text-blue-400 uppercase mb-1 tracking-widest">Target Output Kualitas</p>
+                       <p class="font-bold text-blue-800 text-lg">${phase.result}</p>
+                    </div>
+                </div>
+            `;
+            lucide.createIcons();
+        }
+
+        function restartAnimations() {
+            animateValue("countMonthly", 0, 6500700, 2000);
+            animateValue("countYearly", 0, 78008400, 2500);
+            
+            projects.forEach((p, i) => {
+                animateValue(`projectCap-${p.id}`, 0, p.capacity, 1500 + (i*100));
+            });
+        }
+
+        // INITIALIZE
+        window.onload = () => {
+            // Render Tabs
+            const tabs = document.getElementById('phaseTabs');
+            phases.forEach((p, i) => {
+                const btn = document.createElement('button');
+                btn.className = `phase-tab w-full text-left p-4 rounded-2xl transition-all border bg-white text-slate-600 border-slate-200 hover:border-blue-300 font-bold text-xs uppercase tracking-wider mb-2`;
+                btn.innerText = p.name;
+                btn.onclick = () => setPhase(i);
+                tabs.appendChild(btn);
+            });
+
+            // Render Projects
+            const grid = document.getElementById('projectGrid');
+            projects.forEach(p => {
+                grid.innerHTML += `
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-xl hover:border-blue-500 transition-all duration-300 group">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-blue-50 text-blue-600 text-[10px] font-bold px-3 py-1 rounded-full">EST. ${p.year}</span>
+                            <i data-lucide="arrow-up-right" size="18" class="text-slate-300 group-hover:text-blue-500"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-800 leading-tight mb-3 h-10 overflow-hidden">${p.name}</h3>
+                        <div class="space-y-2 mb-6 text-xs text-slate-500">
+                            <div class="flex items-center"><i data-lucide="map-pin" size="12" class="mr-2"></i>${p.location}</div>
+                            <div class="flex items-center"><i data-lucide="user" size="12" class="mr-2"></i>${p.client}</div>
+                        </div>
+                        <div class="pt-4 border-t border-slate-50 flex justify-between items-end">
+                            <div class="text-[10px] font-bold text-slate-400 uppercase">Kapasitas</div>
+                            <div class="text-right">
+                                <span id="projectCap-${p.id}" class="text-xl font-black text-blue-600 tabular-nums">0</span>
+                                <span class="text-[10px] font-bold text-slate-400 ml-1">m³/bln</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Render Logos
+            const lGrid = document.getElementById('logoGrid');
+            logos.forEach(l => {
+                lGrid.innerHTML += `
+                    <div class="flex justify-center">
+                        <img src="https://raw.githubusercontent.com/invilawatertreatment-blip/invila-odometer/main/${l}" class="h-10 grayscale-hover object-contain" onerror="this.style.display='none'">
+                    </div>
+                `;
+            });
+
+            initCharts();
+            setPhase(0);
+            restartAnimations();
+            lucide.createIcons();
+        };
+    </script>
 </body>
 </html>
