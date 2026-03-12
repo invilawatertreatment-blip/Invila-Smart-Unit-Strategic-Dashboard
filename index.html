@@ -60,10 +60,10 @@
                 </div>
                 <h2 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
                     Analisis Strategis & <br/>
-                    <span class="text-blue-600 underline decoration-blue-200 underline-offset-8">Reklamasi effluent WWTP menjadi Air Bersih</span>
+                    <span class="text-blue-600 underline decoration-blue-200 underline-offset-8">Rekam Jejak Operasional</span>
                 </h2>
                 <p class="text-slate-500 max-w-2xl text-lg leading-relaxed">
-                    Transformasi cerdas air limbah menjadi air produksi. Dirancang untuk potensi optimasi biaya operasional tanpa modifikasi struktur sistem WWTP eksisting.
+                    Transformasi cerdas air limbah menjadi air produksi pangan. Dirancang untuk potensi optimasi biaya operasional tanpa modifikasi struktur permanen pada sistem WWTP eksisting.
                 </p>
             </div>
             <button onclick="restartAnimations()" class="flex items-center justify-center gap-2 bg-white text-slate-700 font-bold px-6 py-3 rounded-xl shadow-sm border border-slate-200 hover:bg-slate-50 transition-all active:scale-95 whitespace-nowrap">
@@ -223,18 +223,11 @@
         ];
 
         const phases = [
-            { id: 0, name: '1. AERO-PULSE', title: 'Optimalisasi Hidrolika & Aero-Shock', desc: 'Bayangkan lumpur di dalam air limbah itu seperti "balon udara kecil". Karena proses aerasi biologi (MBBR) yang sangat kuat, lumpur terjebak oleh gelembung udara mikroskopis sehingga mengapung.\n\nAero-Shock memberikan "hentakan" udara bertekanan selama dalam milliseconds di jalur air masuk untuk melucuti gelembung tersebut. Hasilnya, lumpur kembali berat dan tenggelam secara alami.', result: 'Lumpur mengapung (scum) berkurang drastis, kontaminan terpisah di hopper lamella dan parameter baku mutu membaik. Ini adalah intervensi pertama sistem invila.' },
+            { id: 0, name: '1. AERO-PULSE', title: 'Optimalisasi Hidrolika & Aero-Shock', desc: 'Bayangkan lumpur di dalam air limbah itu seperti "balon udara kecil". Karena proses aerasi biologi (MBBR) yang sangat kuat, lumpur terjebak oleh gelembung udara mikroskopis sehingga mengapung.\n\nAero-Shock memberikan "hentakan" udara bertekanan selama 0,5 detik di jalur air masuk untuk melucuti gelembung tersebut. Hasilnya, lumpur kembali berat dan tenggelam secara alami.', result: 'Lumpur mengapung (scum) berkurang drastis.' },
             { id: 1, name: '2. ZERO-SALT DOSING', title: 'Pengikatan Non-Garam', desc: 'Injeksi polimer kationik organik untuk mengikat kotoran tanpa menambah beban garam (Klorida/TDS) ke dalam air. Strategi ini memastikan angka TDS terjaga tetap rendah tanpa mesin RO yang mahal.', result: 'TDS terkendali sesuai parameter dasar.' },
-            { id: 2, name: '3. HYBRID LAMELLA', title: 'Pemisahan Fisik High-Rate', desc: 'Invila™ Hybrid Lamella Clarifier merupakan unit high-rate sedimentation yang dirancang untuk
-menjawab kebutuhan instalasi pengolahan air modern yang menghadapi keterbatasan lahan, tuntutan
-kapasitas tinggi, dan kebutuhan akan kinerja efluen yang stabil. Sistem ini dikembangkan dengan
-pendekatan engineering-based design, di mana kinerja pengendapan tidak hanya bergantung pada
-volume atau waktu tinggal, tetapi dikendalikan secara langsung oleh geometri lamella dan hydraulic
-boundary conditions.
-Berbeda dengan sistem konvensional yang sering mengandalkan asumsi aliran ideal, Invila™ dirancang
-untuk bekerja secara konsisten pada kondisi operasi nyata, termasuk variasi debit dan kualitas air baku.', result: 'Kekeruhan ditargetkan < < 4 NTU.' },
-            { id: 3, name: '4. SMART AERO-CARBON', title: 'Pemolesan Organik (SACF)', desc: 'Adsorpsi polutan organik dan gas terlarut menggunakan media Silica Sand dan Karbon Aktif premium. Efektif menyerap bau amis darah, warna, dan sisa bahan organik.', result: 'Menghilangkan bau, warna, dan partkel tersuspensi yang lolos sedimentasi sehingga menghasilkan Turbidity < 2NTU.' },
-            { id: 4, name: '5. STERILISASI & BLENDING', title: 'Penyelesaian Food Grade', desc: 'Injeksi klorin dosis presisi dengan dosing pump yang terintegrasi dengan SCADA-IOT(E. Coli = 0) dipadukan dengan pencampuran cerdas (blending 10-15%) air segar untuk mengunci TDS < 300 mg/L sesuai Permenkes No. 2 Tahun 2023.', result: 'Target Mutu: E. Coli 0 (Mutlak)' }
+            { id: 2, name: '3. HYBRID LAMELLA', title: 'Pemisahan Fisik High-Rate', desc: 'Unit sedimentasi kecepatan tinggi dengan geometri lamella khusus. Footprint (kebutuhan lahan) 50% lebih hemat dibandingkan sistem konvensional namun dengan kapasitas jauh lebih besar.', result: 'Kekeruhan ditargetkan < 1 NTU.' },
+            { id: 3, name: '4. SMART AERO-CARBON', title: 'Pemolesan Organik (SACF)', desc: 'Adsorpsi polutan organik dan gas terlarut menggunakan media Silica Sand dan Karbon Aktif premium. Efektif menyerap bau amis darah, warna, dan sisa bahan organik hingga COD < 20 mg/L.', result: 'Menghilangkan bau, warna, dan sisa COD.' },
+            { id: 4, name: '5. STERILISASI & BLENDING', title: 'Penyelesaian Food Grade', desc: 'Injeksi klorin dosis presisi (E. Coli = 0) dipadukan dengan pencampuran cerdas (blending 10-15%) air segar untuk mengunci TDS < 300 mg/L sesuai Permenkes No. 2 Tahun 2023.', result: 'Target Mutu: E. Coli 0 (Mutlak)' }
         ];
 
         const logos = ["tirtanadi.png", "kievit.png", "kiw.png", "petrokimia-gresik.png", "united-tractors.png", "patria-maritim-perkasa.png", "tirta-asasta-depok.png", "wika.png", "cemerlang-samudra-kontrindo.png"];
@@ -392,4 +385,3 @@ untuk bekerja secara konsisten pada kondisi operasi nyata, termasuk variasi debi
     </script>
 </body>
 </html>
-
