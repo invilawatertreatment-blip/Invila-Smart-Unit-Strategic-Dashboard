@@ -182,6 +182,8 @@
             <div id="projectGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </section>
 
+        <!-- BAGIAN LOGO LAMA DI SINI TELAH DIHAPUS AGAR TIDAK BENTROK -->
+
     </main>
 
     <!-- Floating Chat Widget -->
@@ -220,8 +222,9 @@
 
         <!-- Logo Section Dipindahkan Ke Sini (Paling Bawah) -->
         <div class="space-y-8 max-w-7xl mx-auto pt-8 border-t border-slate-900/50">
-            <h4 class="text-[10px] font-bold text-slate-700 uppercase tracking-[0.5em] text-center">Mitra Industri Strategis</h4>
-            <div id="logoGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-6 sm:gap-8 items-center px-4 sm:px-6"></div>
+            <!-- Warna teks diubah menjadi text-slate-400 agar terlihat cerah di background gelap -->
+            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.5em] text-center">Mitra Industri Strategis</h4>
+            <div id="logoGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-4 sm:gap-6 items-center px-4 sm:px-6"></div>
         </div>
 
     </footer>
@@ -247,7 +250,7 @@
             { id: 4, name: '5. STERILISASI & BLENDING', title: 'Penyelesaian Akhir', desc: 'Injeksi klorin dosis presisi (E. Coli = 0) dipadukan dengan pencampuran cerdas (blending 10-15%) air segar untuk mengunci TDS < 300 mg/L tanpa RO yang high Cost dan parameter air sesuai Permenkes No. 2 Tahun 2023.', result: 'Target Mutu: E. Coli 0 (Mutlak)' }
         ];
 
-        // AREA YANG DIMODIFIKASI: Menyesuaikan 100% dengan nama file di GitHub
+        // Daftar logo sesuai nama file di GitHub
         const logos = [
             "cemerlang-samudra-kontrindo.png",
             "kievit.png",
@@ -405,7 +408,8 @@
             });
 
             const lGrid = document.getElementById('logoGrid');
-            logos.forEach(l => lGrid.innerHTML += `<div class="flex justify-center"><img src="https://raw.githubusercontent.com/invilawatertreatment-blip/invila-odometer/main/${l}" class="h-10 grayscale-hover object-contain" onerror="this.style.display='none'"></div>`);
+            // Menambahkan background putih (bg-white rounded-xl p-3) agar logo selalu terlihat jelas di footer yang hitam
+            logos.forEach(l => lGrid.innerHTML += `<div class="flex justify-center bg-white rounded-xl p-3 shadow-sm hover:shadow-md transition-shadow"><img src="https://raw.githubusercontent.com/invilawatertreatment-blip/invila-odometer/main/${l}" class="h-10 grayscale-hover object-contain" onerror="this.style.display='none'"></div>`);
 
             initCharts(); setPhase(0); restartAnimations(); lucide.createIcons();
             
@@ -414,6 +418,3 @@
     </script>
 </body>
 </html>
-
-
-
