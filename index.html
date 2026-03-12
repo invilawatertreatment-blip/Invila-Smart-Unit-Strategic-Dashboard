@@ -182,12 +182,6 @@
             <div id="projectGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </section>
 
-        <!-- Logo Section -->
-        <section class="pt-10 space-y-12">
-            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.5em] text-center">Mitra Industri Strategis</h4>
-            <div id="logoGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-6 sm:gap-8 items-center px-4 sm:px-6"></div>
-        </section>
-
     </main>
 
     <!-- Floating Chat Widget -->
@@ -215,10 +209,21 @@
         </button>
     </div>
 
-    <footer class="mt-20 py-20 bg-slate-950 text-center space-y-6 border-t border-slate-900">
-        <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-lg mx-auto">I</div>
-        <p class="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Engineering by Invila Engineering Systems</p>
-        <p class="text-slate-600 text-[10px] px-8 max-w-2xl mx-auto leading-relaxed italic">Disclaimer: Draf analisis strategis untuk kepentingan internal PT Charoen Pokphand Indonesia.</p>
+    <!-- AREA YANG DIMODIFIKASI: Footer & Pemindahan Logo -->
+    <footer class="mt-20 pt-20 pb-12 bg-slate-950 text-center space-y-16 border-t border-slate-900">
+        
+        <div class="space-y-6">
+            <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-lg mx-auto">I</div>
+            <p class="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Engineering by Invila Engineering Systems</p>
+            <p class="text-slate-600 text-[10px] px-8 max-w-2xl mx-auto leading-relaxed italic">Disclaimer: Draf analisis strategis untuk kepentingan internal PT Charoen Pokphand Indonesia.</p>
+        </div>
+
+        <!-- Logo Section Dipindahkan Ke Sini (Paling Bawah) -->
+        <div class="space-y-8 max-w-7xl mx-auto pt-8 border-t border-slate-900/50">
+            <h4 class="text-[10px] font-bold text-slate-700 uppercase tracking-[0.5em] text-center">Mitra Industri Strategis</h4>
+            <div id="logoGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-6 sm:gap-8 items-center px-4 sm:px-6"></div>
+        </div>
+
     </footer>
 
     <script>
@@ -242,7 +247,18 @@
             { id: 4, name: '5. STERILISASI & BLENDING', title: 'Penyelesaian Akhir', desc: 'Injeksi klorin dosis presisi (E. Coli = 0) dipadukan dengan pencampuran cerdas (blending 10-15%) air segar untuk mengunci TDS < 300 mg/L tanpa RO yang high Cost dan parameter air sesuai Permenkes No. 2 Tahun 2023.', result: 'Target Mutu: E. Coli 0 (Mutlak)' }
         ];
 
-        const logos = ["tirtanadi.png", "kievit.png", "kiw.png", "petrokimia-gresik.png", "united-tractors.png", "patria-maritim-perkasa.png", "tirta-asasta-depok.png", "wika.png", "cemerlang-samudra-kontrindo.png"];
+        // AREA YANG DIMODIFIKASI: Menyesuaikan 100% dengan nama file di GitHub
+        const logos = [
+            "cemerlang-samudra-kontrindo.png",
+            "kievit.png",
+            "kiw.png",
+            "patria-maritim-perkasa.png",
+            "petrokimia-gresik.png",
+            "tirta-asasta-depok.png",
+            "tirtanadi.png",
+            "united-tractors.png",
+            "wika.png"
+        ];
 
         let finChart, scadaChart;
         const apiKey = ""; // Diset secara dinamis oleh environment
